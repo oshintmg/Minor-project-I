@@ -1,1 +1,0 @@
-# Minor-project-I
