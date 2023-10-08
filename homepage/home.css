@@ -1,122 +1,3 @@
-@media (max-width: 320px) {
-  .logo {
-    font-size: 1.5em;
-  }
-  h3 {
-    font-size: 0.6em;
-  }
-  .search-bar {
-    max-width: 250px;
-  }
-  .bookcontainer {
-    margin-top: 150px;
-  }
-  .bookItem img {
-    margin-top: 50px;
-    width: 150px;
-    height: 200px;
-  }
-  .booktitle {
-    font-size: 12px;
-  }
-  h2.booktitle {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 375px) {
-  .logo {
-    font-size: 1.8em;
-  }
-  h3 {
-    font-size: 0.7em;
-  }
-  .search-bar {
-    max-width: 280px;
-  }
-  .bookcontainer {
-    margin-top: 150px;
-  }
-  .bookItem img {
-    margin-top: 50px;
-    width: 180px;
-    height: 250px;
-  }
-  .booktitle {
-    font-size: 14px;
-  }
-  h2.booktitle {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 414px) {
-  .logo {
-    font-size: 2em;
-  }
-  h3 {
-    font-size: 0.8em;
-  }
-  .search-bar {
-    max-width: 300px;
-  }
-  .bookcontainer {
-    margin-top: 150px;
-  }
-  .bookItem img {
-    margin-top: 50px;
-    width: 200px;
-    height: 300px;
-  }
-  .booktitle {
-    font-size: 16px;
-  }
-  h2.booktitle {
-    font-size: 16px;
-  }
-}
-
-
-
-
-
-
-@media (max-width: 768px) {
-  header {
-    padding: 10px 20px;
-    /* Reduce padding for smaller screens */
-  }
-  
-  .logo {
-    font-size: 2em;
-    /* Reduce logo font size */
-  }
-
-  h3 {
-    font-size: 0.8em;
-    /* Reduce header font size */
-  }
-
-  .navigation {
-    flex-direction: column;
-    /* Stack navigation links vertically */
-    align-items: center;
-    text-align: center;
-    position: fixed;
-  }
-
-  .navigation a {
-    margin: 10px 0;
-    /* Add vertical margin between navigation links */
-  }
-
-  .container {
-    flex-direction: column;
-    /* Stack login and registration forms vertically */
-  }
-}
-/* Rest of the existing CSS */
-
 * {
   margin: 0;
   padding: 0;
@@ -124,16 +5,18 @@
   font-family: 'Poppins', sans-serif;
 }
 
+
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
 
+
 header {
- padding: 10px 20px;
-  /* Reduce padding for smaller screens */
+  padding: 10px 20px;
   position: fixed;
   top: 0;
   left: 0;
@@ -145,35 +28,35 @@ header {
   z-index: 99;
 }
 
+
 .logo {
- font-size: 2em;
-  /* Reduce logo font size */
+  font-size: 2em;
   color: antiquewhite;
   user-select: none;
   text-align: center;
-
 }
 
 h3 {
-
   font-size: 0.8em;
-  /* Reduce header font size */
   color: antiquewhite;
 }
 
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
 .navigation a {
-  position: relative;
   font-size: 1.1em;
   color: antiquewhite;
   text-decoration: none;
   font-weight: 500;
-  margin-left: 40px;
-
-  flex-direction: column;
-  /* Stack navigation links vertically */
-  align-items: center;
+  margin-left: 20px;
+  position: relative;
   text-align: center;
 }
+
 
 .navigation a::after {
   content: '';
@@ -186,7 +69,7 @@ h3 {
   border-radius: 5px;
   transform-origin: right;
   transform: scaleX(0);
-  transition: transform .5s;
+  transition: transform 0.5s;
 }
 
 .navigation a:hover::after {
@@ -194,22 +77,70 @@ h3 {
   transform: scaleX(1);
 }
 
-.section-1-text {
-  display: block;
-  border: black;
-}
 
-h1 {
-  font-size: 50px;
-  color: white;
-  text-align: center;
-}
-
-.container {
+.container.icon {
+  position: absolute;
+  right: 0;
+  width: 45px;
+  height: 43px;
+  background: lightgrey;
+  font-size: 2em;
+  color: rgb(83, 78, 78);
   display: flex;
-  align-items: center;
   justify-content: center;
-  overflow: hidden;
+  align-items: center;
+  cursor: pointer;
+  flex-direction: column;
+}
+
+
+@media (max-width: 768px) {
+  header {
+      padding: 10px;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .logo {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+  }
+
+  h3 {
+      font-size: 0.7em;
+      margin-bottom: 10px;
+  }
+
+  .navigation {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: fixed;
+      background: #5C4033;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: -100%;
+      z-index: 98;
+      transition: left 0.3s ease-in;
+  }
+
+  .navigation.active {
+      left: 0;
+  }
+
+  .navigation a {
+      margin: 10px 0;
+  }
+
+  .container {
+      flex-direction: column;
+  }
+
+  .container.icon {
+      font-size: 1.5em;
+  }
+
 }
 
 .search-bar {
@@ -250,42 +181,39 @@ h1 {
   cursor: pointer;
 }
 
-.fa-duotone .fa-circle-user {
+#userIcon {
   border: 0;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
   font-size: 48px;
 }
 
-/* Style the dropdown container */
+
 #dropdownContainer {
   display: none;
   position: absolute;
-  top: 100%;
-  /* Position it below the user icon */
+  top: 100%; /*position it below the user icon */
   right: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: #5C4033;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   list-style: none;
   padding: 20px 10px;
   margin: 0;
-  z-index: 100;
-  /* Ensure it's above other content */
+  z-index: 100;  /*Ensure it's above other content */
 }
 
-/* Remove the dot circle from list items */
+/*Remove the dot circle from list items */
 #dropdownContainer ul {
   list-style-type: none;
   padding: 0;
   text-align: center;
 }
 
-/* Style the list items */
+
 #dropdownContainer ul li {
-  margin-bottom: 10px;
-  /* Add spacing between list items */
+  margin-bottom: 10px; /* Add spacing bet- list items */
 }
 
 .container.icon {
@@ -300,8 +228,7 @@ h1 {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  flex-direction: column;
-  /* Stack login and registration forms vertically */
+  flex-direction: column; /* Stack login and registration forms vertically */
 }
 
 #loginContainer {
@@ -315,10 +242,10 @@ h1 {
   width: 400px;
   height: 450px;
   border-radius: 20px;
-  top: 50%;  /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%);  /* Centering trick */
-  display: none;  /* Hide the login container by default */
+  top: 50%; /* Center vertically */
+  left: 50%;  /* Center horizontally */
+  transform: translate(-50%, -50%); 
+  display: none; /* Hide the login container- default */
 }
 
 .login-hidden {
@@ -347,7 +274,7 @@ h1 {
   margin-bottom: 10px;
   border-radius: 3px;
   border: 1px solid #ccc;
-  box-sizing: border-box;  /* Ensures padding is included in the width */
+  box-sizing: border-box; /* Ensures padding is included in the width */
 }
 
 #loginContainer input[type="submit"] {
@@ -369,13 +296,11 @@ h1 {
 }
 
 .remember-forgot label {
-  margin-right: 10px;
-  /* Adjust the margin to your preference */
+  margin-right: 10px; 
 }
 
 #loginContainer input[type="submit"] {
-  margin-top: 15px;
-  /* Adjusted margin-top */
+  margin-top: 15px; 
   background-color: #5C3317;
   color: white;
   border: none;
@@ -395,8 +320,7 @@ h1 {
 #passwordErrormsg {
   color: red;
   font-size: 9px;
-  height: 13px;
-  /* Adjusted margin-top */
+  height: 13px; 
   top: 0;
   left: 0;
 }
@@ -410,14 +334,11 @@ a:active {
 }
 
 .register-container {
-  display: none;
-  /* Add your styling for the container */
-  position: fixed;
-  /* Ensure relative positioning for the container */
+  display: none; 
+  position: fixed; 
   border: 1px solid #ccc;
   width: 400px;
-  height: 470px;
-  /* Adjusted to accommodate variable content height */
+  height: 470px; 
   border-radius: 20px;
   background: rgba(0, 0, 0, 0.5);
   margin: 0 auto;
@@ -426,30 +347,20 @@ a:active {
   border-radius: 20px;
   z-index: 999;
   display: flex;
-  flex-direction: column;
-  /* Change to column layout */
+  flex-direction: column; /* Change to column layout */
   align-items: center;
-  top: 50%;
-  /* Center vertically */
-  left: 50%;
-  /* Center horizontally */
-  transform: translate(-50%, -50%);
-  /* Centering trick */
-
+  top: 50%;  /* Center vertically */
+  left: 50%;  /* Center horizontally */
+  transform: translate(-50%, -50%); 
 }
-
-/*width: 90%; /* Adjusted width for smaller screens */
-/*height: auto; /* Let the content determine height */
 
 .close-icon2 {
   position: absolute;
   top: 5px;
   right: 5px;
-  font-size: 16px;
-  /* Reduce close icon size */
+  font-size: 16px; 
   cursor: pointer;
-  color: white;
-  /* Add this line to ensure visibility */
+  color: white; 
 }
 
 .register-container h2 {
@@ -476,7 +387,6 @@ a:active {
 }
 
 .register-container #ConfirmPassword {
-
   width: 100%;
   padding: 10px;
   margin-top: 10px;
@@ -494,10 +404,7 @@ a:active {
   border: 1px solid #A0522D;
 }
 
-
 .register-container #cb {
-
-
   padding: 10px;
   margin-top: 15px;
   margin-bottom: 5px;
@@ -516,7 +423,6 @@ a:active {
   border-radius: 3px;
   cursor: pointer;
 }
-
 
 .register-container input[type="submit"]:hover {
   background-color: #A0522D;
@@ -539,11 +445,9 @@ a:active {
   font-size: 9px;
   height: 13px;
   margin-top: 0;
-  position: absolute;
-
-  /* Initially hide error messages */
+  position: absolute;/* Initially hide error messages */
+ 
 }
-
 
 .bookUpload-container {
   display: none;
@@ -563,7 +467,7 @@ a:active {
   background: rgba(0, 0, 0, 0.5);
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%);/* Centering trick */
+  transform: translate(-50%, -50%); 
 }
 
 .bookUpload-hidden {
@@ -574,11 +478,9 @@ a:active {
   position: absolute;
   top: 5px;
   right: 5px;
-  font-size: 16px;
-  /* Reduce close icon size */
+  font-size: 16px; 
   cursor: pointer;
-  color: white;
-  /* Add this line to ensure visibility */
+  color: white; 
 }
 
 .bookUpload-container h2 {
@@ -630,14 +532,15 @@ a:active {
 /* books */
 .bookcontainer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  flex-direction: column;
-  /* Stack rows vertically */
-  align-items: center;
-  /* Center content horizontally */
-  gap: 20px;
-  /* Gap between rows */
+  align-items: flex-start;
+  gap: 20px;  /* Gap between rows */
   text-align: center;
+  flex-grow: 1;
+  padding: 20px;
+  max-width: 1200px; 
+  margin: 0 auto;
 }
 
 .books {
@@ -647,20 +550,17 @@ a:active {
 }
 
 .bookItem {
-  width: 50%;
-  /* Adjust the width as per your requirements */
+  width: 50%; 
   float: left;
-  padding: 10px;
-  /* Add padding to create spacing between images */
-  box-sizing: border-box;
-  /* Include padding in the width calculation */
+  padding: 10px; /*padding to create spacing between images */
+  box-sizing: border-box; 
 }
 
 .bookItem img {
   margin-top: 90px;
-  width: 200px;
+  width: 150px;
   max-width: 100%;
-  height: 300px;
+  height: 200px;
   object-fit: cover;
   border-width: 1px;
   border-style: solid;
@@ -673,49 +573,62 @@ a:active {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
-
   color: black;
 }
 
-/* style2.css */
-
-/* ... (your existing CSS) ... */
 h2.booktitle {
   margin-top: 5px;
   font-size: 15px;
   color: #6b6b6b;
 }
 
-
-
-.book-row {
-  display: flex;
-  gap: 20px;
-  /* Gap between book items */
-}
-
 .book-item {
-  flex: 1;
-  /* Equal width for book items */
-  /* Additional styling for each book item */
+  flex: 1;  /* Equal width for book items */
 }
 
-/*.scroll-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #5C4033;
-    border: none;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 1;
-}*/
-
-.left {
-  left: 10px;
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  margin-top: auto;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+.footer-links {
+  margin-bottom: 10px;
 }
 
-.right {
-  right: 10px;
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
 }
+
+.social-icons a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 24px;
+}
+
+.social-icons .fab {
+  transition: color 0.3s ease;
+}
+
+.social-icons .fab:hover {
+  color: #007bff; 
+}
+
+.db {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+   
+  
